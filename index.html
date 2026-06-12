@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#25635a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Portion Planner">
+    <title>Portion Planner</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" data-i18n="eyebrow">Bakery production</p>
+          <h1 data-i18n="title">Portion Planner</h1>
+        </div>
+        <div class="language-switch" aria-label="Language">
+          <button class="language-button active" type="button" data-language="en">EN</button>
+          <button class="language-button" type="button" data-language="nl">NL</button>
+        </div>
+      </header>
+
+      <section class="panel controls-panel" aria-labelledby="input-heading">
+        <div class="section-heading">
+          <h2 id="input-heading" data-i18n="inputHeading">Input</h2>
+          <button id="calculateBtn" class="primary-button" type="button" data-i18n="calculate">Calculate</button>
+        </div>
+
+        <div id="errorMessage" class="error-message" role="alert" hidden></div>
+
+        <div class="form-grid">
+          <label>
+            <span data-i18n="productionStart">Production start</span>
+            <input id="productionStart" type="time" value="08:00">
+          </label>
+          <label>
+            <span data-i18n="productionEnd">Production end</span>
+            <input id="productionEnd" type="time" value="12:00">
+          </label>
+          <label>
+            <span data-i18n="portionMinutes">Full portion time, min</span>
+            <input id="portionMinutes" type="number" min="0" step="1" value="30" inputmode="decimal">
+          </label>
+          <label>
+            <span data-i18n="portionKg">Full portion weight, kg</span>
+            <input id="portionKg" type="number" min="0" step="0.01" value="240" inputmode="decimal">
+          </label>
+          <label>
+            <span data-i18n="currentPortion">Current portion number</span>
+            <input id="currentPortion" type="number" min="1" step="1" value="1" inputmode="numeric">
+          </label>
+        </div>
+
+        <div class="section-subheading">
+          <h3 data-i18n="additivesHeading">Additives per full portion</h3>
+        </div>
+
+        <div class="form-grid compact-grid">
+          <label>
+            <span data-i18n="fatKg">Fat, kg</span>
+            <input id="fatKg" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+          </label>
+          <label>
+            <span data-i18n="waterLiters">Water, l</span>
+            <input id="waterLiters" type="number" min="0" step="0.01" value="1" inputmode="decimal">
+          </label>
+          <label>
+            <span data-i18n="sugarKg">Sugar, kg</span>
+            <input id="sugarKg" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+          </label>
+          <label>
+            <span data-i18n="flourKg">Flour, kg</span>
+            <input id="flourKg" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+          </label>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="breaks-heading">
+        <div class="section-heading">
+          <h2 id="breaks-heading" data-i18n="breaksHeading">Breaks</h2>
+          <button id="addBreakBtn" class="secondary-button" type="button" data-i18n="addBreak">Add break</button>
+        </div>
+        <div id="breakList" class="break-list"></div>
+      </section>
+
+      <section class="panel results-panel" aria-labelledby="results-heading">
+        <div class="section-heading">
+          <h2 id="results-heading" data-i18n="resultsHeading">Result</h2>
+          <span id="scheduleStart" class="schedule-start"></span>
+        </div>
+
+        <div class="summary-grid">
+          <div>
+            <span data-i18n="totalPortions">Total portions</span>
+            <strong id="totalPortions">0</strong>
+          </div>
+          <div>
+            <span data-i18n="totalWeight">Total weight</span>
+            <strong id="totalWeight">0 kg</strong>
+          </div>
+          <div>
+            <span data-i18n="lastPortion">Last portion</span>
+            <strong id="lastPortion">-</strong>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="portion">Portion</th>
+                <th data-i18n="start">Start</th>
+                <th data-i18n="end">End</th>
+                <th data-i18n="weight">Weight</th>
+                <th data-i18n="fat">Fat</th>
+                <th data-i18n="water">Water</th>
+                <th data-i18n="sugar">Sugar</th>
+                <th data-i18n="flour">Flour</th>
+              </tr>
+            </thead>
+            <tbody id="resultRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
