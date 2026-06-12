@@ -1,51 +1,59 @@
 # Portion Planner PWA
 
-Progressive Web App для iPhone и Windows 11.
+Portion Planner.
 
-## Функции
+## Functions
 
-- English по умолчанию;
-- переключение на Nederlands;
-- расчет порций по рабочему времени;
-- учет перерывов;
-- продолжение порции после перерыва;
-- расчет неполной последней порции;
-- пропорциональный расчет жира, воды, сахара и муки;
-- сохранение введенных данных в браузере;
-- PWA manifest и service worker для добавления на главный экран iPhone.
+- English by default;
+- switch to Nederlands;
+- shift presets and save your presets;
+- calculation of portions by working time;
+- accounting for breaks;
+- names of breaks;
+- continuation of the portion after the break;
+- midnight shift support;
+- calculation of the incomplete last portion;
+- proportional calculation of fat, water, sugar and flour;
+- total values for fat, water, sugar and flour;
+- highlighting negative additives;
+- copying the schedule;
+- history of recent calculations;
+- the 'Now` button for a quick start from the current time;
+- saving the entered data in the browser;
+- PWA manifest and service worker to add to the iPhone home screen.
 
-## Как открыть на Windows 11
+## How to open on Windows 11
 
-Самый простой локальный запуск:
+The simplest local startup:
 
 ```powershell
-cd C:\Users\pc\Documents\Codex\2026-06-12\iphone\outputs\BakeryPWA
+cd yourProjectPath
 python -m http.server 8080
 ```
 
-Затем откройте:
+Then open:
 
 ```text
 http://localhost:8080
 ```
 
-Можно также запустить файл `start-server.ps1` из этой папки.
+You can also run the 'start-server.ps1` file from this folder.
 
-## Как открыть на iPhone
+## How to open on iPhone
 
-Вариант 1: загрузить папку на любой HTTPS-хостинг, например Netlify, Vercel, GitHub Pages или свой сервер.
+Option 1: upload the folder to any HTTPS hosting, such as Netlify, Vercel, GitHub Pages, or your server.
 
-Вариант 2: если iPhone и Windows 11 находятся в одной Wi-Fi сети:
+Option 2: If the iPhone and Windows 11 are on the same Wi-Fi network:
 
-1. Запустите локальный сервер на Windows.
-2. Узнайте IP-адрес Windows-компьютера в локальной сети.
-3. Откройте на iPhone Safari:
+1. Start a local server on Windows.
+2. Find out the IP address of the Windows computer on the local network.
+3. Open Safari on iPhone:
 
 ```text
-http://IP-КОМПЬЮТЕРА:8080
+http://yourIp:8080
 ```
 
-4. Нажмите `Share`.
-5. Выберите `Add to Home Screen`.
+4. Click `Share'.
+5. Select `Add to Home Screen'.
 
-Для полноценной установки PWA и надежной offline-работы лучше использовать HTTPS-хостинг.
+For a full-fledged PWA installation and reliable offline work, it is better to use HTTPS hosting.
