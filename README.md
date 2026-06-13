@@ -43,11 +43,11 @@ You can also run the 'start-server.ps1` file from this folder.
 
 Option 1: upload the folder to any HTTPS hosting, such as Netlify, Vercel, GitHub Pages, or your server.
 
-Option 2: If the iPhone and Windows 11 are on the same Wi-Fi network:
+Option 2: If the Phone and Windows 11 are on the same Wi-Fi network:
 
 1. Start a local server on Windows.
 2. Find out the IP address of the Windows computer on the local network.
-3. Open Safari on iPhone:
+3. Open Browser or Phone:
 
 ```text
 http://yourIp:8080
